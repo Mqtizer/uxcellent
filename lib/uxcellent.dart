@@ -1,7 +1,4 @@
 library uxcellent;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/widget/image_from_initials.dart';
+export 'src/widget/initials_avatar.dart';
