@@ -14,8 +14,7 @@ const Widget verticalSpaceMedium = SizedBox(height: 16);
 const Widget verticalSpaceLarge = SizedBox(height: 32);
 const Widget verticalSpaceMassive = SizedBox(height: 64);
 
-Widget horizontalDividerStandard = Divider(
-  color: Colors.grey.shade300,
+const Widget horizontalDividerStandard = Divider(
   height: 32,
   thickness: 0.5,
   indent: 16,
@@ -23,7 +22,6 @@ Widget horizontalDividerStandard = Divider(
 );
 
 const Widget verticalDivider = VerticalDivider(
-  color: Colors.grey,
   width: 1,
   thickness: 1,
   indent: 0,
