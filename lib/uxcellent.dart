@@ -1,5 +1,6 @@
 library uxcellent;
 
+export './ui_helpers.dart';
 export 'components/image/initials_avatar.dart';
 export 'theme/color_schemes.dart';
 export 'theme/custom_color.dart';
