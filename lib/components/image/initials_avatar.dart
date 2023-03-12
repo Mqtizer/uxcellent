@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 
 class UXInitialsAvatar extends StatelessWidget {
   final String? name;
-  final double? size;
   final String? imageUrl;
   final Color? textColor;
   final Color? backgroundColor;
   final double? borderRadius;
   final BoxShadow? boxShadow;
+  final double size;
+  final BoxFit fit;
 
   const UXInitialsAvatar({
     super.key,
     this.name,
     this.imageUrl,
-    this.size = 40,
     this.textColor,
     this.backgroundColor,
     this.borderRadius,
     this.boxShadow,
+    this.size = 40,
+    this.fit = BoxFit.contain,
   });
 
   @override
@@ -26,6 +28,7 @@ class UXInitialsAvatar extends StatelessWidget {
     final bool isImage = imageUrl != null;
 
     return Container(
+      
       width: size,
       height: size,
       clipBehavior: Clip.antiAlias,
@@ -49,7 +52,7 @@ class UXInitialsAvatar extends StatelessWidget {
         image: isImage
             ? DecorationImage(
                 image: NetworkImage(imageUrl!),
-                fit: BoxFit.cover,
+                fit: fit,
               )
             : null,
       ),

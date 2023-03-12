@@ -1,5 +1,7 @@
 library uxcellent;
 
-export 'src/widget/image_from_initials.dart';
-export 'src/widget/initials_avatar.dart';
-export 'src/cards/workspace_card.dart';
+export 'components/image/initials_avatar.dart';
+export 'theme/color_schemes.dart';
+export 'theme/custom_color.dart';
+export 'theme/text_theme.dart';
+// export 'src/cards/workspace_card.dart';
