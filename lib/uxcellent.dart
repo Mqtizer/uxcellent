@@ -19,3 +19,5 @@ export 'components/formFields/text_form_field.dart';
 export 'extensions/device_extension.dart';
 export 'extensions/theme_extension.dart';
 export 'extensions/text_controller.dart';
+
+export './icons.dart';

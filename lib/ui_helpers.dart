@@ -32,3 +32,35 @@ const EdgeInsets screenPaddingStandard =
     EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0);
 
 const Duration durationStandard = Duration(milliseconds: 200);
+const Duration durationFast = Duration(milliseconds: 100);
+const Duration durationSlow = Duration(milliseconds: 400);
+const Duration durationSlowest = Duration(milliseconds: 800);
+
+const EdgeInsetsGeometry paddingStandard =
+    EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0);
+
+const EdgeInsetsGeometry paddingStandardHorizontal = EdgeInsets.symmetric(
+  horizontal: 16.0,
+);
+
+const EdgeInsetsGeometry paddingStandardHorizontalMedium = EdgeInsets.symmetric(
+  horizontal: 8.0,
+);
+
+const EdgeInsetsGeometry paddingStandardHorizontalSmall = EdgeInsets.symmetric(
+  horizontal: 4.0,
+);
+
+const EdgeInsetsGeometry paddingStandardVertical = EdgeInsets.symmetric(
+  vertical: 8.0,
+);
+
+const EdgeInsetsGeometry paddingStandardVerticalSmall = EdgeInsets.symmetric(
+  vertical: 4.0,
+);
+
+const EdgeInsetsGeometry paddingStandardVerticalLarge = EdgeInsets.symmetric(
+  vertical: 16.0,
+);
+
+
