@@ -9,4 +9,14 @@ extension ThemeDataContext on BuildContext {
   CustomColors get customColors => Theme.of(this).extension<CustomColors>()!;
 
   TextTheme get textTheme => Theme.of(this).textTheme;
+
+  LinearGradient get gradient => LinearGradient(
+        begin: const Alignment(-0.115, -1),
+        end: const Alignment(1, 1),
+        colors: <Color>[
+          colorScheme.surfaceVariant,
+          colorScheme.tertiaryContainer
+        ],
+        stops: const <double>[0.608, 1],
+      );
 }

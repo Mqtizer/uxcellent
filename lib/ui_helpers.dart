@@ -21,6 +21,13 @@ const Widget horizontalDividerStandard = Divider(
   endIndent: 16,
 );
 
+const Widget horizontalDividerMedium = Divider(
+  height: 48,
+  thickness: 1,
+  indent: 0,
+  endIndent: 0,
+);
+
 const Widget verticalDivider = VerticalDivider(
   width: 1,
   thickness: 1,
@@ -62,5 +69,3 @@ const EdgeInsetsGeometry paddingStandardVerticalSmall = EdgeInsets.symmetric(
 const EdgeInsetsGeometry paddingStandardVerticalLarge = EdgeInsets.symmetric(
   vertical: 16.0,
 );
-
-

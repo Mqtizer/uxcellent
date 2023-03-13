@@ -48,6 +48,7 @@ class UXTheme extends StatelessWidget {
             bottomAppBarTheme: bottomAppBarTheme,
             floatingActionButtonTheme: floatingActionButtonTheme(lightScheme),
             dividerColor: lightScheme.onSurface.withOpacity(0.12),
+            canvasColor: lightScheme.secondaryContainer.withAlpha(120),
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
@@ -57,8 +58,7 @@ class UXTheme extends StatelessWidget {
             textTheme: textTheme,
             bottomAppBarTheme: bottomAppBarTheme,
             floatingActionButtonTheme: floatingActionButtonTheme(darkScheme),
-            dividerColor: darkScheme.onSurface.withOpacity(0.12),
-
+            dividerColor: darkScheme.secondaryContainer.withAlpha(120),
           ),
           themeMode: themeMode,
           routerConfig: routerConfig,
@@ -83,5 +83,5 @@ const bottomAppBarTheme = BottomAppBarTheme(
   elevation: 0.0,
   shape: CircularNotchedRectangle(),
   padding: EdgeInsets.all(0.0),
-  height: 80.0,
+  // height: 80.0,
 );
