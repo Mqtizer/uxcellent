@@ -21,7 +21,7 @@ elevatedButtonTheme(ColorScheme colorScheme) => ElevatedButtonThemeData(
           fontSize: 16,
         ),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     );
@@ -36,19 +36,19 @@ outlinedButtonTheme(ColorScheme colorScheme) => OutlinedButtonThemeData(
           fontSize: 16,
         ),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     );
 
 textButtonTheme(ColorScheme colorScheme) => TextButtonThemeData(
       style: TextButton.styleFrom(
-        minimumSize: const Size.fromHeight(40),
+        minimumSize: const Size.fromHeight(32),
         backgroundColor: colorScheme.surface,
         foregroundColor: colorScheme.tertiary,
         alignment: Alignment.centerLeft,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
     );
