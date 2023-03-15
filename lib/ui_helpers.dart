@@ -24,8 +24,8 @@ const Widget horizontalDividerStandard = Divider(
 const Widget horizontalDividerMedium = Divider(
   height: 48,
   thickness: 1,
-  indent: 0,
-  endIndent: 0,
+  indent: 16,
+  endIndent: 16,
 );
 
 const Widget verticalDivider = VerticalDivider(

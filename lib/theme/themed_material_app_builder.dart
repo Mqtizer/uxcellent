@@ -4,18 +4,26 @@ import 'package:flutter/material.dart';
 import 'color_schemes.dart';
 import 'custom_color.dart';
 import 'text_theme.dart';
+import 'widget_themes/button_themes.dart';
 
 class UXTheme extends StatelessWidget {
   final bool isMaterialYou;
   final ThemeMode themeMode;
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
   final RouterConfig<Object> routerConfig;
+  final Iterable<Locale>? supportedLocales;
+  final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
+  final Locale? locale;
+
   const UXTheme({
     super.key,
     this.isMaterialYou = false,
     this.themeMode = ThemeMode.system,
     required this.scaffoldMessengerKey,
     required this.routerConfig,
+    this.supportedLocales,
+    this.localizationsDelegates,
+    this.locale,
   });
 
   @override
@@ -39,6 +47,10 @@ class UXTheme extends StatelessWidget {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           scaffoldMessengerKey: scaffoldMessengerKey,
+          localizationsDelegates: localizationsDelegates,
+          locale: locale,
+          supportedLocales:
+              supportedLocales ?? const <Locale>[Locale('en', 'US')],
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightScheme,
@@ -47,6 +59,9 @@ class UXTheme extends StatelessWidget {
             textTheme: textTheme,
             bottomAppBarTheme: bottomAppBarTheme,
             floatingActionButtonTheme: floatingActionButtonTheme(lightScheme),
+            elevatedButtonTheme: elevatedButtonTheme(lightScheme),
+            outlinedButtonTheme: outlinedButtonTheme(lightScheme),
+            textButtonTheme: textButtonTheme(lightScheme),
             dividerColor: lightScheme.onSurface.withOpacity(0.12),
             canvasColor: lightScheme.secondaryContainer.withAlpha(120),
           ),
@@ -58,6 +73,9 @@ class UXTheme extends StatelessWidget {
             textTheme: textTheme,
             bottomAppBarTheme: bottomAppBarTheme,
             floatingActionButtonTheme: floatingActionButtonTheme(darkScheme),
+            elevatedButtonTheme: elevatedButtonTheme(darkScheme),
+            outlinedButtonTheme: outlinedButtonTheme(darkScheme),
+            textButtonTheme: textButtonTheme(darkScheme),
             dividerColor: darkScheme.secondaryContainer.withAlpha(120),
           ),
           themeMode: themeMode,
@@ -67,17 +85,6 @@ class UXTheme extends StatelessWidget {
     );
   }
 }
-
-floatingActionButtonTheme(ColorScheme colorscheme) =>
-    FloatingActionButtonThemeData(
-      backgroundColor: colorscheme.primary,
-      foregroundColor: colorscheme.onPrimary,
-      elevation: 0.0,
-      sizeConstraints: const BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-    );
 
 const bottomAppBarTheme = BottomAppBarTheme(
   elevation: 0.0,

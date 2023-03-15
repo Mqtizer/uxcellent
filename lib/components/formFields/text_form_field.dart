@@ -16,7 +16,7 @@ class UXTextFormField extends StatelessWidget {
   const UXTextFormField({
     super.key,
     required this.label,
-    required this.helperText,
+    this.helperText = "",
     this.hintText = "",
     this.controller,
     this.validator,

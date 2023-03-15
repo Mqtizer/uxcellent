@@ -14,7 +14,7 @@ class UXPasswordFormField extends StatefulWidget {
   const UXPasswordFormField({
     super.key,
     required this.label,
-    required this.helperText,
+    this.helperText = "",
     this.hintText = "",
     required this.controller,
     required this.validator,

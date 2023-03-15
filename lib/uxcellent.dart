@@ -21,3 +21,4 @@ export 'extensions/theme_extension.dart';
 export 'extensions/text_controller.dart';
 
 export './icons.dart';
+export './logo.dart';
