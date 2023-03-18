@@ -54,7 +54,7 @@ class UXTheme extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightScheme,
-            scaffoldBackgroundColor: lightScheme.surface,
+            scaffoldBackgroundColor: lightScheme.background,
             extensions: [lightCustomColors],
             textTheme: textTheme,
             bottomAppBarTheme: bottomAppBarTheme,
@@ -63,13 +63,13 @@ class UXTheme extends StatelessWidget {
             outlinedButtonTheme: outlinedButtonTheme(lightScheme),
             textButtonTheme: textButtonTheme(lightScheme),
             dividerColor: lightScheme.onSurface.withOpacity(0.12),
-            canvasColor: lightScheme.secondaryContainer.withAlpha(120),
+            // canvasColor: lightScheme.secondaryContainer.withAlpha(120),
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: darkScheme,
             extensions: [darkCustomColors],
-            scaffoldBackgroundColor: darkScheme.surface,
+            scaffoldBackgroundColor: darkScheme.background,
             textTheme: textTheme,
             bottomAppBarTheme: bottomAppBarTheme,
             floatingActionButtonTheme: floatingActionButtonTheme(darkScheme),
@@ -87,8 +87,8 @@ class UXTheme extends StatelessWidget {
 }
 
 const bottomAppBarTheme = BottomAppBarTheme(
-  elevation: 0.0,
+  // elevation: 0.0,
   shape: CircularNotchedRectangle(),
-  padding: EdgeInsets.all(0.0),
+  // padding: EdgeInsets.all(0.0),
   // height: 80.0,
 );
