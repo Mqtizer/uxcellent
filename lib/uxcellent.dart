@@ -15,6 +15,7 @@ export 'components/formFields/password_form_field.dart';
 export 'components/formFields/single_select_form_field.dart';
 export 'components/formFields/switch_form_field.dart';
 export 'components/formFields/text_form_field.dart';
+export 'components/shimmer_container.dart';
 
 export 'extensions/device_extension.dart';
 export 'extensions/theme_extension.dart';
