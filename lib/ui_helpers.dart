@@ -21,6 +21,13 @@ const Widget horizontalDividerStandard = Divider(
   endIndent: 16,
 );
 
+const Widget horizontalDividerSmall = Divider(
+  height: 24,
+  thickness: 0.5,
+  indent: 24,
+  endIndent: 24,
+);
+
 const Widget horizontalDividerMedium = Divider(
   height: 48,
   thickness: 1,
@@ -68,4 +75,28 @@ const EdgeInsetsGeometry paddingStandardVerticalSmall = EdgeInsets.symmetric(
 
 const EdgeInsetsGeometry paddingStandardVerticalLarge = EdgeInsets.symmetric(
   vertical: 16.0,
+);
+
+const RoundedRectangleBorder roundShapeStandard = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+);
+
+const RoundedRectangleBorder roundShapeSmall = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+);
+
+const RoundedRectangleBorder roundShapeLarge = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(16.0)),
+);
+
+const BorderRadius borderRadiusStandard = BorderRadius.all(
+  Radius.circular(8.0),
+);
+
+const BorderRadius borderRadiusSmall = BorderRadius.all(
+  Radius.circular(4.0),
+);
+
+const BorderRadius borderRadiusLarge = BorderRadius.all(
+  Radius.circular(16.0),
 );
