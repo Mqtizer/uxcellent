@@ -53,6 +53,18 @@ const Duration durationSlowest = Duration(milliseconds: 800);
 const EdgeInsetsGeometry paddingStandard =
     EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0);
 
+const EdgeInsetsGeometry paddingEqual = EdgeInsets.all(16.0);
+
+const EdgeInsetsGeometry paddingEqualSmall = EdgeInsets.all(8.0);
+
+const EdgeInsetsGeometry paddingEqualLarge = EdgeInsets.all(32.0);
+
+const EdgeInsetsGeometry paddingEqualMassive = EdgeInsets.all(64.0);
+
+const EdgeInsetsGeometry paddingEqualTiny = EdgeInsets.all(4.0);
+
+const EdgeInsetsGeometry paddingEqualMedium = EdgeInsets.all(12.0);
+
 const EdgeInsetsGeometry paddingCard = EdgeInsets.fromLTRB(12, 10, 12, 12);
 
 const EdgeInsetsGeometry paddingHorizontal = EdgeInsets.symmetric(

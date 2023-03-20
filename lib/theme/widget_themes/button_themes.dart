@@ -14,8 +14,8 @@ floatingActionButtonTheme(ColorScheme colorscheme) =>
 elevatedButtonTheme(ColorScheme colorScheme) => ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(48),
-        backgroundColor: colorScheme.primaryContainer,
-        foregroundColor: colorScheme.onPrimaryContainer,
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
         textStyle: const TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 16,
@@ -43,8 +43,8 @@ outlinedButtonTheme(ColorScheme colorScheme) => OutlinedButtonThemeData(
 
 textButtonTheme(ColorScheme colorScheme) => TextButtonThemeData(
       style: TextButton.styleFrom(
-        minimumSize: const Size.fromHeight(32),
-        backgroundColor: colorScheme.surface,
+        minimumSize: const Size.fromHeight(16),
+        backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.tertiary,
         alignment: Alignment.centerLeft,
         shape: const RoundedRectangleBorder(

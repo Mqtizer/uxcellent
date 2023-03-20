@@ -11,12 +11,11 @@ class ShimmerContainer extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: paddingStandard,
       child: Shimmer.fromColors(
-        baseColor: colorScheme.outlineVariant,
-        highlightColor: colorScheme.surfaceVariant,
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[400]!,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

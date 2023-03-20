@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uxcellent/uxcellent.dart';
+
+import '../theme/custom_color.dart';
 
 extension ThemeDataContext on BuildContext {
   Color get bottomAppBarColor =>
