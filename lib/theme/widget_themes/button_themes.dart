@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 floatingActionButtonTheme(ColorScheme colorscheme) =>
@@ -13,7 +15,7 @@ floatingActionButtonTheme(ColorScheme colorscheme) =>
 
 elevatedButtonTheme(ColorScheme colorScheme) => ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size.fromHeight(48),
+        minimumSize: Size(0.0, Platform.isIOS ? 40.0 : 48.0),
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
         textStyle: const TextStyle(
@@ -28,7 +30,7 @@ elevatedButtonTheme(ColorScheme colorScheme) => ElevatedButtonThemeData(
 
 outlinedButtonTheme(ColorScheme colorScheme) => OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        minimumSize: const Size.fromHeight(48),
+        minimumSize: Size(0.0, Platform.isIOS ? 40.0 : 48.0),
         backgroundColor: colorScheme.surface,
         foregroundColor: colorScheme.primary,
         textStyle: const TextStyle(
@@ -43,7 +45,7 @@ outlinedButtonTheme(ColorScheme colorScheme) => OutlinedButtonThemeData(
 
 textButtonTheme(ColorScheme colorScheme) => TextButtonThemeData(
       style: TextButton.styleFrom(
-        minimumSize: const Size.fromHeight(16),
+        minimumSize: Size(0.0, Platform.isIOS ? 40.0 : 48.0),
         backgroundColor: colorScheme.background,
         foregroundColor: colorScheme.tertiary,
         alignment: Alignment.centerLeft,

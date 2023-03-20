@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 InputDecoration buildUXInputDecoration({
@@ -11,12 +13,16 @@ InputDecoration buildUXInputDecoration({
   Widget? suffix,
   Widget? prefix,
   String? errorText,
-  EdgeInsetsGeometry contentPadding = const EdgeInsets.all(16),
+  EdgeInsetsGeometry? contentPadding,
 }) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
   TextTheme textTheme = Theme.of(context).textTheme;
   return InputDecoration(
-    contentPadding: contentPadding,
+    contentPadding: contentPadding ??
+        EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: Platform.isIOS ? 12 : 16,
+        ),
     labelText: labelText == "" ? null : labelText,
     helperText: helperText == "" ? null : helperText,
     hintText: hintText == "" ? null : hintText,

@@ -11,6 +11,7 @@ extension ThemeDataContext on BuildContext {
 
   TextTheme get textTheme => Theme.of(this).textTheme;
 
+  bool get isDark => Theme.of(this).brightness == Brightness.dark;
   LinearGradient get gradient => LinearGradient(
         begin: const Alignment(-0.115, -1),
         end: const Alignment(1, 1),
