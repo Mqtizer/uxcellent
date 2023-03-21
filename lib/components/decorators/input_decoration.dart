@@ -1,6 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+
+import '../../app_platform.dart';
 
 InputDecoration buildUXInputDecoration({
   required BuildContext context,
@@ -21,7 +21,7 @@ InputDecoration buildUXInputDecoration({
     contentPadding: contentPadding ??
         EdgeInsets.symmetric(
           horizontal: 16,
-          vertical: Platform.isIOS ? 12 : 16,
+          vertical: isIOS ? 12 : 16,
         ),
     labelText: labelText == "" ? null : labelText,
     helperText: helperText == "" ? null : helperText,
