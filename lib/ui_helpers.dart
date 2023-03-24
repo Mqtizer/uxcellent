@@ -49,44 +49,44 @@ const Duration durationFast = Duration(milliseconds: 100);
 const Duration durationSlow = Duration(milliseconds: 400);
 const Duration durationSlowest = Duration(milliseconds: 800);
 
-const EdgeInsetsGeometry paddingStandard =
+const EdgeInsets paddingStandard =
     EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0);
 
-const EdgeInsetsGeometry paddingEqual = EdgeInsets.all(16.0);
+const EdgeInsets paddingEqual = EdgeInsets.all(16.0);
 
-const EdgeInsetsGeometry paddingEqualSmall = EdgeInsets.all(8.0);
+const EdgeInsets paddingEqualSmall = EdgeInsets.all(8.0);
 
-const EdgeInsetsGeometry paddingEqualLarge = EdgeInsets.all(32.0);
+const EdgeInsets paddingEqualLarge = EdgeInsets.all(32.0);
 
-const EdgeInsetsGeometry paddingEqualMassive = EdgeInsets.all(64.0);
+const EdgeInsets paddingEqualMassive = EdgeInsets.all(64.0);
 
-const EdgeInsetsGeometry paddingEqualTiny = EdgeInsets.all(4.0);
+const EdgeInsets paddingEqualTiny = EdgeInsets.all(4.0);
 
-const EdgeInsetsGeometry paddingEqualMedium = EdgeInsets.all(12.0);
+const EdgeInsets paddingEqualMedium = EdgeInsets.all(12.0);
 
-const EdgeInsetsGeometry paddingCard = EdgeInsets.fromLTRB(12, 10, 12, 12);
+const EdgeInsets paddingCard = EdgeInsets.fromLTRB(12, 10, 12, 12);
 
-const EdgeInsetsGeometry paddingHorizontal = EdgeInsets.symmetric(
+const EdgeInsets paddingHorizontal = EdgeInsets.symmetric(
   horizontal: 16.0,
 );
 
-const EdgeInsetsGeometry paddingHorizontalMedium = EdgeInsets.symmetric(
+const EdgeInsets paddingHorizontalMedium = EdgeInsets.symmetric(
   horizontal: 8.0,
 );
 
-const EdgeInsetsGeometry paddingHorizontalSmall = EdgeInsets.symmetric(
+const EdgeInsets paddingHorizontalSmall = EdgeInsets.symmetric(
   horizontal: 4.0,
 );
 
-const EdgeInsetsGeometry paddingVertical = EdgeInsets.symmetric(
+const EdgeInsets paddingVertical = EdgeInsets.symmetric(
   vertical: 8.0,
 );
 
-const EdgeInsetsGeometry paddingVerticalSmall = EdgeInsets.symmetric(
+const EdgeInsets paddingVerticalSmall = EdgeInsets.symmetric(
   vertical: 4.0,
 );
 
-const EdgeInsetsGeometry paddingVerticalLarge = EdgeInsets.symmetric(
+const EdgeInsets paddingVerticalLarge = EdgeInsets.symmetric(
   vertical: 16.0,
 );
 

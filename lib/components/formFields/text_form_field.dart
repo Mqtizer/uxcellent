@@ -12,6 +12,7 @@ class UXTextFormField extends StatelessWidget {
   final bool disabled;
   final TextInputAction textInputAction;
   final List<String>? autofillHints;
+  final FocusNode? focusNode;
 
   const UXTextFormField({
     super.key,
@@ -24,6 +25,7 @@ class UXTextFormField extends StatelessWidget {
     this.autofillHints,
     this.disabled = false,
     this.textInputAction = TextInputAction.next,
+    this.focusNode,
   });
 
   @override
@@ -31,6 +33,7 @@ class UXTextFormField extends StatelessWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return TextFormField(
+      focusNode: focusNode,
       controller: controller,
       textInputAction: textInputAction,
       maxLines: 50,
