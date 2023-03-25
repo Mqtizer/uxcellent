@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class UXInitialsAvatar extends StatelessWidget {
-  final String? name;
+  final String name;
   final String? imageUrl;
   final Color? textColor;
   final Color? backgroundColor;
@@ -12,8 +13,8 @@ class UXInitialsAvatar extends StatelessWidget {
 
   const UXInitialsAvatar({
     super.key,
-    this.name,
-    this.imageUrl,
+    this.name = "Mqtizer",
+    this.imageUrl = "https://www.mqtizer.com/images/mqtizer-logo.png",
     this.textColor,
     this.backgroundColor,
     this.borderRadius,
@@ -24,59 +25,63 @@ class UXInitialsAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Building initials avatar for $name");
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final bool isImage = imageUrl != null;
 
-    return Container(
-      
-      width: size,
-      height: size,
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(borderRadius ?? 8),
-        color: !isImage
-            ? backgroundColor ?? colorScheme.primary
-            : Colors.transparent,
-        boxShadow: isImage
-            ? []
-            : [
-                boxShadow ??
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 2,
-                      offset: const Offset(0, 1),
-                    )
-              ],
-        image: isImage
-            ? DecorationImage(
-                image: NetworkImage(imageUrl!),
-                fit: fit,
-              )
-            : null,
+    return CachedNetworkImage(
+      imageUrl: imageUrl ?? "",
+      placeholder: (context, url) => const CircularProgressIndicator(),
+      imageBuilder: (context, imageProvider) => Container(
+        width: size,
+        height: size,
+        clipBehavior: Clip.antiAlias,
+        decoration:
+            _buildDecoration(true, backgroundColor ?? colorScheme.primary),
+        child: Image(
+          image: imageProvider,
+          fit: fit,
+        ),
       ),
-      child: isImage
-          ? null
-          : Center(
-              child: name != null
-                  ? Text(
-                      getFirstTwoInitials(name!),
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(color: textColor ?? colorScheme.onPrimary),
-                    )
-                  : Icon(
-                      Icons.person,
-                      color: textColor ?? colorScheme.onPrimary,
-                    ),
-            ),
+      errorWidget: (context, url, error) => Container(
+        alignment: Alignment.center,
+        width: size,
+        height: size,
+        clipBehavior: Clip.antiAlias,
+        decoration: _buildDecoration(true, colorScheme.secondaryContainer),
+        child: Text(
+          getFirstTwoInitials(name),
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: textColor ?? colorScheme.onSecondaryContainer,
+                fontSize: size / 2.5,
+              ),
+        ),
+      ),
+    );
+  }
+
+  BoxDecoration _buildDecoration(bool shadow, Color backgroundColor) {
+    return BoxDecoration(
+      shape: BoxShape.rectangle,
+      borderRadius: BorderRadius.circular(borderRadius ?? 8),
+      color: backgroundColor,
+      boxShadow: shadow
+          ? []
+          : [
+              boxShadow ??
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: const Offset(0, 1),
+                  )
+            ],
     );
   }
 }
 
 String getFirstTwoInitials(String name) {
+  if (name.isEmpty) return "";
   List<String> nameList = name.split(' ');
-  return nameList[0][0] + nameList[1][0];
+  if (nameList.length == 1) return nameList[0][0].toUpperCase();
+  return nameList[0][0].toUpperCase() + nameList[1][0].toUpperCase();
 }
