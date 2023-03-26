@@ -39,6 +39,7 @@ class _UXFileUploadFormFieldState extends State<UXFileUploadFormField> {
                   await FilePicker.platform.pickFiles(
                 type: FileType.custom,
                 allowedExtensions: widget.allowedFileTypes,
+                allowCompression: true,
               );
               if (result != null) {
                 setState(() {

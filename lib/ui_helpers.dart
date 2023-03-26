@@ -42,7 +42,7 @@ const Widget verticalDivider = VerticalDivider(
   endIndent: 0,
 );
 
-const EdgeInsets screenPaddingStandard = EdgeInsets.fromLTRB(16, 0, 16, 4);
+const EdgeInsets screenPaddingStandard = EdgeInsets.fromLTRB(16, 16, 16, 4);
 const EdgeInsets dialogPaddingStandard = EdgeInsets.fromLTRB(24, 24, 24, 32);
 
 const Duration durationStandard = Duration(milliseconds: 200);

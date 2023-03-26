@@ -1,5 +1,7 @@
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'color_schemes.dart';
 import 'custom_color.dart';
@@ -63,6 +65,8 @@ class UXTheme extends StatelessWidget {
             outlinedButtonTheme: outlinedButtonTheme(lightScheme),
             textButtonTheme: textButtonTheme(lightScheme),
             dividerColor: lightScheme.onSurface.withOpacity(0.12),
+            cupertinoOverrideTheme:
+                cupertinoStyle(Brightness.light, lightScheme),
             // canvasColor: lightScheme.secondaryContainer.withAlpha(120),
           ),
           darkTheme: ThemeData(
@@ -77,11 +81,43 @@ class UXTheme extends StatelessWidget {
             outlinedButtonTheme: outlinedButtonTheme(darkScheme),
             textButtonTheme: textButtonTheme(darkScheme),
             dividerColor: darkScheme.secondaryContainer.withAlpha(120),
+            cupertinoOverrideTheme: cupertinoStyle(Brightness.dark, darkScheme),
           ),
           themeMode: themeMode,
           routerConfig: routerConfig,
         );
       },
+    );
+  }
+
+  CupertinoThemeData cupertinoStyle(
+      Brightness brightness, ColorScheme colorScheme) {
+    return CupertinoThemeData(
+      brightness: brightness,
+      primaryColor: colorScheme.primary,
+      primaryContrastingColor: colorScheme.onPrimary,
+      barBackgroundColor: colorScheme.surface,
+      scaffoldBackgroundColor: colorScheme.background,
+      textTheme: CupertinoTextThemeData(
+        textStyle: GoogleFonts.nunito(),
+        navTitleTextStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 16,
+        ),
+        primaryColor: colorScheme.primary,
+        navLargeTitleTextStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 24,
+        ),
+        navActionTextStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 16,
+        ),
+        actionTextStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 16,
+        ),
+      ),
     );
   }
 }

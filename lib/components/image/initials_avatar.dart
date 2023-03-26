@@ -25,7 +25,6 @@ class UXInitialsAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Building initials avatar for $name");
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return CachedNetworkImage(

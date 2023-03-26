@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../app_platform.dart';
 
 InputDecoration buildUXInputDecoration({
@@ -15,19 +14,23 @@ InputDecoration buildUXInputDecoration({
   String? errorText,
   EdgeInsetsGeometry? contentPadding,
 }) {
-  ColorScheme colorScheme = Theme.of(context).colorScheme;
-  TextTheme textTheme = Theme.of(context).textTheme;
+  final colorScheme = Theme.of(context).colorScheme;
+  final textTheme = Theme.of(context).textTheme;
+  final borderSide = BorderSide(
+    color: disabled
+        ? colorScheme.onSurface.withOpacity(0.12)
+        : colorScheme.onSurface.withOpacity(0.32),
+  );
+  final borderRadius = BorderRadius.circular(isIOS ? 8 : 4);
+
   return InputDecoration(
     contentPadding: contentPadding ??
-        EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: isIOS ? 12 : 16,
-        ),
-    labelText: labelText == "" ? null : labelText,
-    helperText: helperText == "" ? null : helperText,
-    hintText: hintText == "" ? null : hintText,
+        const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    labelText: labelText.isEmpty ? null : labelText,
+    helperText: helperText.isEmpty ? null : helperText,
     errorText: errorText,
-    floatingLabelBehavior: FloatingLabelBehavior.always,
+    floatingLabelBehavior:
+        isIOS ? FloatingLabelBehavior.never : FloatingLabelBehavior.always,
     labelStyle: textTheme.titleLarge!.copyWith(
       color: disabled ? Colors.grey[500] : colorScheme.primary,
     ),
@@ -36,23 +39,31 @@ InputDecoration buildUXInputDecoration({
       color: disabled ? Colors.grey[500] : colorScheme.primary,
     ),
     helperMaxLines: 5,
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: BorderSide(
-        color: colorScheme.primary,
-        width: 1.4,
-      ),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: BorderSide(
-        color: colorScheme.primary,
-        width: 1.4,
-      ),
-    ),
     suffixIcon: suffixIcon,
     prefixIcon: prefixIcon,
     suffix: suffix,
     prefix: prefix,
+    border: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: borderSide,
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: borderSide,
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: borderSide,
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: borderSide.copyWith(
+        color: colorScheme.error,
+      ),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: borderSide,
+    ),
   );
 }
