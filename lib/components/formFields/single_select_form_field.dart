@@ -13,21 +13,21 @@ class UXSingleSelectOption<T> {
   });
 }
 
-enum MqtizerSingleSelectFormFieldType {
+enum UXSingleSelectFormFieldType {
   radio,
   segmentedButton,
 }
 
-class MqtizerSingleSelectFormField<T> extends StatelessWidget {
+class UXSingleSelectFormField<T> extends StatelessWidget {
   final T value;
   final String label;
   final String helperText;
   final List<UXSingleSelectOption<T>> options;
   final bool disabled;
   final ValueChanged<T> onChanged;
-  final MqtizerSingleSelectFormFieldType type;
+  final UXSingleSelectFormFieldType type;
 
-  const MqtizerSingleSelectFormField({
+  const UXSingleSelectFormField({
     super.key,
     required this.value,
     required this.label,
@@ -35,7 +35,7 @@ class MqtizerSingleSelectFormField<T> extends StatelessWidget {
     required this.options,
     this.disabled = false,
     required this.onChanged,
-    this.type = MqtizerSingleSelectFormFieldType.segmentedButton,
+    this.type = UXSingleSelectFormFieldType.segmentedButton,
   });
 
   @override
@@ -49,7 +49,7 @@ class MqtizerSingleSelectFormField<T> extends StatelessWidget {
         helperText: helperText,
         disabled: disabled,
       ),
-      child: type == MqtizerSingleSelectFormFieldType.radio
+      child: type == UXSingleSelectFormFieldType.radio
           ? radioGroup(colorScheme, textTheme)
           : buildSegmentedButton(colorScheme),
     );

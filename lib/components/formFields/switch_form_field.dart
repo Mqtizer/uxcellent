@@ -29,7 +29,7 @@ class UXSwitchFormField extends StatelessWidget {
         labelText: label,
         disabled: disabled,
       ),
-      child: SwitchListTile(
+      child: SwitchListTile.adaptive(
         value: value,
         onChanged: (bool value) {
           if (disabled) return;

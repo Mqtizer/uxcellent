@@ -25,19 +25,27 @@ InputDecoration buildUXInputDecoration({
 
   return InputDecoration(
     contentPadding: contentPadding ??
-        const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        EdgeInsets.symmetric(horizontal: 16, vertical: isIOS ? 12 : 16),
     labelText: labelText.isEmpty ? null : labelText,
     helperText: helperText.isEmpty ? null : helperText,
     errorText: errorText,
     floatingLabelBehavior:
         isIOS ? FloatingLabelBehavior.never : FloatingLabelBehavior.always,
-    labelStyle: textTheme.titleLarge!.copyWith(
-      color: disabled ? Colors.grey[500] : colorScheme.primary,
-    ),
+    labelStyle: !isIOS
+        ? textTheme.titleLarge!.copyWith(
+            color: disabled ? Colors.grey[500] : colorScheme.primary,
+          )
+        : textTheme.titleMedium!.copyWith(
+            color: disabled ? Colors.grey[500] : colorScheme.primary,
+          ),
     alignLabelWithHint: true,
     helperStyle: textTheme.titleSmall!.copyWith(
       color: disabled ? Colors.grey[500] : colorScheme.primary,
     ),
+    // hintText: hintText.isEmpty ? labelText : hintText,
+    // hintStyle: textTheme.titleSmall!.copyWith(
+    //   color: disabled ? Colors.grey[500] : colorScheme.primary,
+    // ),
     helperMaxLines: 5,
     suffixIcon: suffixIcon,
     prefixIcon: prefixIcon,

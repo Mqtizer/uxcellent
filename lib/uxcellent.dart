@@ -17,6 +17,7 @@ export 'components/formFields/switch_form_field.dart';
 export 'components/formFields/text_form_field.dart';
 export 'components/shimmer_container.dart';
 export 'components/dialog/dialog_box.dart';
+export 'components/expansion_panel.dart';
 
 export 'extensions/device_extension.dart';
 export 'extensions/theme_extension.dart';
