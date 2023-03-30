@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../app_platform.dart';
+import '../../theme/custom_color.dart';
 
 InputDecoration buildUXInputDecoration({
   required BuildContext context,
@@ -16,6 +18,8 @@ InputDecoration buildUXInputDecoration({
 }) {
   final colorScheme = Theme.of(context).colorScheme;
   final textTheme = Theme.of(context).textTheme;
+  final CustomColors customColors =
+      Theme.of(context).extension<CustomColors>()!;
   final borderSide = BorderSide(
     color: disabled
         ? colorScheme.onSurface.withOpacity(0.12)
@@ -29,6 +33,10 @@ InputDecoration buildUXInputDecoration({
     labelText: labelText.isEmpty ? null : labelText,
     helperText: helperText.isEmpty ? null : helperText,
     errorText: errorText,
+    errorStyle: textTheme.labelLarge!.copyWith(
+      color: customColors.mqtizernegative,
+    ),
+    errorMaxLines: 5,
     floatingLabelBehavior:
         isIOS ? FloatingLabelBehavior.never : FloatingLabelBehavior.always,
     labelStyle: !isIOS
@@ -39,11 +47,11 @@ InputDecoration buildUXInputDecoration({
             color: disabled ? Colors.grey[500] : colorScheme.primary,
           ),
     alignLabelWithHint: true,
-    helperStyle: textTheme.titleSmall!.copyWith(
+    helperStyle: textTheme.labelLarge!.copyWith(
       color: disabled ? Colors.grey[500] : colorScheme.primary,
     ),
     // hintText: hintText.isEmpty ? labelText : hintText,
-    // hintStyle: textTheme.titleSmall!.copyWith(
+    // hintStyle: textTheme.labelMedium!.copyWith(
     //   color: disabled ? Colors.grey[500] : colorScheme.primary,
     // ),
     helperMaxLines: 5,

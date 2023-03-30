@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uxcellent/app_platform.dart';
 
 import '../ui_helpers.dart';
 
@@ -27,28 +28,39 @@ class UXExpansionTile extends StatelessWidget {
             final keyContext = expansionTileKey.currentContext;
             if (keyContext != null) {
               Future.delayed(durationStandard).then((value) {
-                Scrollable.ensureVisible(keyContext,
-                    duration: const Duration(milliseconds: 500));
+                Scrollable.ensureVisible(
+                  keyContext,
+                  duration: const Duration(milliseconds: 500),
+                );
+                // Keep the expansion tile open for a while
               });
             }
           }
         },
         title: Text(title),
-        backgroundColor: colorScheme.primary,
-        collapsedBackgroundColor: colorScheme.primary,
-        collapsedIconColor: colorScheme.onPrimary,
-        collapsedTextColor: colorScheme.onPrimary,
-        iconColor: colorScheme.onPrimary,
-        textColor: colorScheme.onPrimary,
+        backgroundColor: colorScheme.primaryContainer,
+        collapsedBackgroundColor: colorScheme.primaryContainer,
+        collapsedIconColor: colorScheme.onPrimaryContainer,
+        collapsedTextColor: colorScheme.onPrimaryContainer,
+        iconColor: colorScheme.onPrimaryContainer,
+        textColor: colorScheme.onPrimaryContainer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: BorderSide(color: colorScheme.primary, width: 1),
+        ),
+        collapsedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: BorderSide(color: colorScheme.primary, width: 1),
+        ),
         children: <Widget>[
           Container(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(8.0),
-                  bottomRight: Radius.circular(8.0)),
+                bottomLeft: Radius.circular(8.0),
+                bottomRight: Radius.circular(8.0),
+              ),
               color: colorScheme.surface,
-              border: Border.all(color: colorScheme.primary, width: 1),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
