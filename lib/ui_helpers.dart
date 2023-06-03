@@ -12,7 +12,7 @@ const Widget verticalSpaceTiny = SizedBox(height: 4);
 const Widget verticalSpaceSmall = SizedBox(height: 8);
 const Widget verticalSpaceMedium = SizedBox(height: 16);
 const Widget verticalSpaceLarge = SizedBox(height: 32);
-const Widget verticalSpaceMassive = SizedBox(height: 64);
+const Widget verticalSpaceMassive = SizedBox(height: 44);
 
 const Widget horizontalDividerStandard = Divider(
   height: 32,
@@ -43,6 +43,7 @@ const Widget verticalDivider = VerticalDivider(
 );
 
 const EdgeInsets screenPaddingStandard = EdgeInsets.fromLTRB(16, 16, 16, 4);
+const EdgeInsets screenPaddingTB = EdgeInsets.fromLTRB(0, 16, 0, 4);
 const EdgeInsets dialogPaddingStandard = EdgeInsets.fromLTRB(24, 24, 24, 32);
 
 const Duration durationStandard = Duration(milliseconds: 200);
@@ -54,7 +55,10 @@ const EdgeInsets paddingStandard =
     EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0);
 
 const EdgeInsets paddingStandardMedium =
-    EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0);
+    EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0);
+
+const EdgeInsets paddingStandardMediumVertical =
+    EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0);
 
 const EdgeInsets paddingEqual = EdgeInsets.all(16.0);
 

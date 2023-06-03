@@ -2,6 +2,19 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:flutter/material.dart';
 
+Widget inviteIcon({
+  Color color = Colors.white,
+  double size = 24,
+}) =>
+    SvgPicture.asset(
+      'assets/icons/invite.svg',
+      semanticsLabel: 'Invite',
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+      package: 'uxcellent',
+      width: size,
+      height: size,
+    );
+
 Widget homeIcon({
   Color color = Colors.white,
   double size = 24,
@@ -26,7 +39,6 @@ Widget homeActiveIcon({
       package: 'uxcellent',
       width: size,
       height: size,
-     
     );
 
 Widget templateIcon({

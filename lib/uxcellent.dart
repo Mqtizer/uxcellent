@@ -24,6 +24,7 @@ export 'extensions/theme_extension.dart';
 export 'extensions/text_controller.dart';
 
 export './icons.dart';
+export './role_icons.dart';
 export './logo.dart';
 export './social_icons.dart';
 

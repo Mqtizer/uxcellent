@@ -7,5 +7,6 @@
         "nunito",
         "uxcellent",
         "Uxcellentpositive"
-    ]
+    ],
+    "svg.preview.background": "editor"
 }

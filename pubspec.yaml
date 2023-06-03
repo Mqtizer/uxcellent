@@ -3,12 +3,12 @@ description: A new Flutter package project.
 version: 0.0.1
 
 environment:
-  sdk: ">=2.19.3 <3.0.0"
+  sdk: ">=3.0.1 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   cached_network_image: ^3.2.3
-  dynamic_color: ^1.6.2
+  dynamic_color: ^1.6.5
   file_picker: ^5.2.5
   flutter:
     sdk: flutter
@@ -26,4 +26,5 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/roleIcons/
     - assets/social/
