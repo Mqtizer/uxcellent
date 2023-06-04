@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uxcellent/app_platform.dart';
 
 import '../ui_helpers.dart';
 

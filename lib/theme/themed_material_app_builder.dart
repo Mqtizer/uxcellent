@@ -7,6 +7,7 @@ import 'color_schemes.dart';
 import 'custom_color.dart';
 import 'text_theme.dart';
 import 'widget_themes/button_themes.dart';
+import 'widget_themes/tile_theme.dart';
 
 class UXTheme extends StatelessWidget {
   final bool isMaterialYou;
@@ -64,6 +65,7 @@ class UXTheme extends StatelessWidget {
             elevatedButtonTheme: elevatedButtonTheme(lightScheme),
             outlinedButtonTheme: outlinedButtonTheme(lightScheme),
             textButtonTheme: textButtonTheme(lightScheme),
+            listTileTheme: listTileTheme(lightScheme, textTheme),
             dividerColor: lightScheme.onSurface.withOpacity(0.12),
             cupertinoOverrideTheme:
                 cupertinoStyle(Brightness.light, lightScheme),
@@ -80,6 +82,7 @@ class UXTheme extends StatelessWidget {
             elevatedButtonTheme: elevatedButtonTheme(darkScheme),
             outlinedButtonTheme: outlinedButtonTheme(darkScheme),
             textButtonTheme: textButtonTheme(darkScheme),
+            listTileTheme: listTileTheme(darkScheme, textTheme),
             dividerColor: darkScheme.secondaryContainer.withAlpha(120),
             cupertinoOverrideTheme: cupertinoStyle(Brightness.dark, darkScheme),
           ),
