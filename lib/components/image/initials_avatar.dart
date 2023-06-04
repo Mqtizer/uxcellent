@@ -10,6 +10,7 @@ class UXInitialsAvatar extends StatelessWidget {
   final BoxShadow? boxShadow;
   final double size;
   final BoxFit fit;
+  final BoxShape shape;
 
   const UXInitialsAvatar({
     super.key,
@@ -21,6 +22,7 @@ class UXInitialsAvatar extends StatelessWidget {
     this.boxShadow,
     this.size = 40,
     this.fit = BoxFit.contain,
+    this.shape = BoxShape.rectangle,
   });
 
   @override
@@ -66,8 +68,10 @@ class UXInitialsAvatar extends StatelessWidget {
 
   BoxDecoration _buildDecoration(bool shadow, Color backgroundColor) {
     return BoxDecoration(
-      shape: BoxShape.rectangle,
-      borderRadius: BorderRadius.circular(borderRadius ?? 8),
+      shape: shape,
+      borderRadius: shape == BoxShape.rectangle
+          ? BorderRadius.circular(borderRadius ?? 8)
+          : null,
       color: backgroundColor,
       boxShadow: shadow
           ? []
