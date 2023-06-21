@@ -101,6 +101,7 @@ class UXTheme extends StatelessWidget {
       primaryContrastingColor: colorScheme.onPrimary,
       barBackgroundColor: colorScheme.surface,
       scaffoldBackgroundColor: colorScheme.background,
+      applyThemeToAll: true,
       textTheme: CupertinoTextThemeData(
         textStyle: GoogleFonts.nunito(),
         navTitleTextStyle: TextStyle(

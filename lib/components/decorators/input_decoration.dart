@@ -15,16 +15,19 @@ InputDecoration buildUXInputDecoration({
   Widget? prefix,
   String? errorText,
   EdgeInsetsGeometry? contentPadding,
+  bool showBorder = true,
 }) {
   final colorScheme = Theme.of(context).colorScheme;
   final textTheme = Theme.of(context).textTheme;
   final CustomColors customColors =
       Theme.of(context).extension<CustomColors>()!;
-  final borderSide = BorderSide(
-    color: disabled
-        ? colorScheme.onSurface.withOpacity(0.12)
-        : colorScheme.onSurface.withOpacity(0.32),
-  );
+  final borderSide = showBorder
+      ? BorderSide(
+          color: disabled
+              ? colorScheme.onSurface.withOpacity(0.12)
+              : colorScheme.onSurface.withOpacity(0.32),
+        )
+      : BorderSide.none;
   final borderRadius = BorderRadius.circular(isIOS ? 8 : 4);
 
   return InputDecoration(

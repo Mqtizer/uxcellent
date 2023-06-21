@@ -36,15 +36,16 @@ const Widget horizontalDividerMedium = Divider(
 );
 
 const Widget verticalDivider = VerticalDivider(
-  width: 1,
+  width: 32,
   thickness: 1,
-  indent: 0,
-  endIndent: 0,
+  indent: 8,
+  endIndent: 8,
 );
 
 const EdgeInsets screenPaddingStandard = EdgeInsets.fromLTRB(16, 16, 16, 4);
 const EdgeInsets screenPaddingTB = EdgeInsets.fromLTRB(0, 16, 0, 4);
 const EdgeInsets dialogPaddingStandard = EdgeInsets.fromLTRB(24, 24, 24, 32);
+const EdgeInsets dialogPaddingTight = EdgeInsets.fromLTRB(16, 16, 16, 32);
 
 const Duration durationStandard = Duration(milliseconds: 200);
 const Duration durationFast = Duration(milliseconds: 100);

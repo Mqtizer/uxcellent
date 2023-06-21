@@ -45,6 +45,8 @@ class UXAppDialogBox extends StatelessWidget {
   final String message;
   final UXAppDialogLevel level;
   final List<UXAppDialogAction> dialogActions;
+  final bool showIcon;
+  final Widget? titleWidget;
 
   const UXAppDialogBox({
     super.key,
@@ -52,6 +54,8 @@ class UXAppDialogBox extends StatelessWidget {
     required this.message,
     required this.level,
     required this.dialogActions,
+    this.showIcon = true,
+    this.titleWidget,
   });
 
   @override
@@ -70,12 +74,13 @@ class UXAppDialogBox extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      title: Text(title),
-      icon: Icon(
-        icon,
-        color: levelColor,
-        size: 32.0,
-      ),
+      title: titleWidget ?? Text(title),
+      icon: showIcon
+          ? Icon(
+              icon,
+              color: levelColor,
+            )
+          : null,
       iconColor: levelColor,
       content: Text(message),
       actionsAlignment: MainAxisAlignment.spaceAround,

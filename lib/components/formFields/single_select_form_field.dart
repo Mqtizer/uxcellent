@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uxcellent/app_platform.dart';
 
 import '../decorators/button_style.dart';
 import '../decorators/input_decoration.dart';
@@ -18,7 +20,7 @@ enum UXSingleSelectFormFieldType {
   segmentedButton,
 }
 
-class UXSingleSelectFormField<T> extends StatelessWidget {
+class UXSingleSelectFormField<T extends Object> extends StatelessWidget {
   final T value;
   final String label;
   final String helperText;
@@ -48,14 +50,41 @@ class UXSingleSelectFormField<T> extends StatelessWidget {
         labelText: label,
         helperText: helperText,
         disabled: disabled,
+        showBorder: !isIOS || type == UXSingleSelectFormFieldType.radio,
+        contentPadding: !isIOS || type == UXSingleSelectFormFieldType.radio
+            ? null
+            : EdgeInsets.zero,
       ),
       child: type == UXSingleSelectFormFieldType.radio
           ? radioGroup(colorScheme, textTheme)
-          : buildSegmentedButton(colorScheme),
+          : isIOS
+              ? buildCupertinoSegmentedControl(colorScheme)
+              : buildSegmentedButton(colorScheme),
     );
   }
 
-  SegmentedButton<dynamic> buildSegmentedButton(ColorScheme colorScheme) {
+  CupertinoSegmentedControl<T> buildCupertinoSegmentedControl(
+          ColorScheme colorScheme) =>
+      CupertinoSegmentedControl<T>(
+        padding: EdgeInsets.zero,
+        groupValue: value,
+        selectedColor: disabled ? Colors.grey[500] : colorScheme.primary,
+        children: Map.fromEntries(
+          options.map(
+            (option) => MapEntry(
+              option.value,
+              option.label,
+            ),
+          ),
+        ),
+        onValueChanged: (T? value) {
+          if (disabled) return;
+          onChanged(
+              options.firstWhere((option) => option.value == value).value);
+        },
+      );
+
+  Widget buildSegmentedButton(ColorScheme colorScheme) {
     return SegmentedButton<T>(
       style: buildUXButtonDecoration(colorScheme, disabled),
       segments: options
