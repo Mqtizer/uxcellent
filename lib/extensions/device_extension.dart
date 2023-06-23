@@ -10,6 +10,9 @@ extension DeviceDataContext on BuildContext {
   bool get isPortrait =>
       MediaQuery.of(this).orientation == Orientation.portrait;
 
-  bool get isKeyboardVisible =>
-      WidgetsBinding.instance.window.viewInsets.bottom > 0.0;
+  bool get isKeyboardVisible => MediaQuery.of(this).viewInsets.bottom > 0;
+  // hide keyboard
+  void hideKeyboard() {
+    FocusManager.instance.primaryFocus?.unfocus();
+  }
 }

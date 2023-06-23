@@ -126,13 +126,16 @@ class UXAppDialogBox extends StatelessWidget {
   CupertinoAlertDialog _buildCupertinoAlert(
       Color levelColor, ColorScheme colorScheme) {
     return CupertinoAlertDialog(
-      title: Text(title),
+      title: titleWidget ?? Text(title),
       content: Text(message),
       actions: dialogActions.isNotEmpty
           ? dialogActions
               .map(
                 (action) => CupertinoDialogAction(
                   onPressed: action.onPressed,
+                  textStyle: TextStyle(
+                    color: action.isPrimary ? levelColor : colorScheme.primary,
+                  ),
                   child: Text(action.label),
                 ),
               )
