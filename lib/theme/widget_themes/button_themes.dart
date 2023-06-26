@@ -6,10 +6,14 @@ floatingActionButtonTheme(ColorScheme colorscheme) =>
     FloatingActionButtonThemeData(
       backgroundColor: colorscheme.primary,
       foregroundColor: colorscheme.onPrimary,
-      elevation: 0.0,
-      sizeConstraints: const BoxConstraints.tightFor(
+      elevation: 2.0,
+      largeSizeConstraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
+      ),
+      smallSizeConstraints: const BoxConstraints.tightFor(
+        width: 48.0,
+        height: 48.0,
       ),
     );
 
