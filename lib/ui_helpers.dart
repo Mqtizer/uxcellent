@@ -46,6 +46,7 @@ const EdgeInsets screenPaddingStandard = EdgeInsets.fromLTRB(16, 16, 16, 4);
 const EdgeInsets screenPaddingTB = EdgeInsets.fromLTRB(0, 16, 0, 4);
 const EdgeInsets dialogPaddingStandard = EdgeInsets.fromLTRB(24, 24, 24, 32);
 const EdgeInsets dialogPaddingTight = EdgeInsets.fromLTRB(16, 16, 16, 32);
+const EdgeInsets safeAreaPadding = EdgeInsets.fromLTRB(16, 48, 16, 8);
 
 const Duration durationStandard = Duration(milliseconds: 200);
 const Duration durationFast = Duration(milliseconds: 100);
