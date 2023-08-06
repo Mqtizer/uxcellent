@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class UXInitialsAvatar extends StatelessWidget {
   final String name;
@@ -42,25 +43,34 @@ class UXInitialsAvatar extends StatelessWidget {
             ),
       ),
     );
-    if (imageUrl == null) {
+    if (!isValidURL(imageUrl)) {
       return container;
     } else {
-      return CachedNetworkImage(
-        imageUrl: imageUrl ?? "",
-        placeholder: (context, url) => const CircularProgressIndicator(),
-        imageBuilder: (context, imageProvider) => Container(
-          width: size,
-          height: size,
-          clipBehavior: Clip.antiAlias,
-          decoration:
-              _buildDecoration(true, backgroundColor ?? colorScheme.primary),
-          child: Image(
-            image: imageProvider,
-            fit: fit,
-          ),
-        ),
-        errorWidget: (context, url, error) {
-          return container;
+      return FutureBuilder(
+        future: validateImage(imageUrl!),
+        builder: (context, snapshot) {
+          if (snapshot.hasData && snapshot.data == true) {
+            return CachedNetworkImage(
+              imageUrl: imageUrl!,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              imageBuilder: (context, imageProvider) => Container(
+                width: size,
+                height: size,
+                clipBehavior: Clip.antiAlias,
+                decoration: _buildDecoration(
+                    true, backgroundColor ?? colorScheme.primary),
+                child: Image(
+                  image: imageProvider,
+                  fit: fit,
+                ),
+              ),
+              errorWidget: (context, url, error) {
+                return container;
+              },
+            );
+          } else {
+            return container;
+          }
         },
       );
     }
@@ -97,4 +107,31 @@ String getFirstTwoInitials(String name) {
   } catch (e) {
     return "-NA-";
   }
+}
+
+bool isValidURL(String? url) {
+  if (url == null || url.isEmpty) return false;
+  Uri? uri = Uri.tryParse(url);
+  if (uri == null || !uri.hasAbsolutePath || uri.host.isEmpty) return false;
+  return true;
+}
+
+Future<bool> validateImage(String imageUrl) async {
+  http.Response res;
+  try {
+    res = await http.get(Uri.parse(imageUrl));
+  } catch (e) {
+    return false;
+  }
+
+  if (res.statusCode != 200) return false;
+  Map<String, dynamic> data = res.headers;
+  return checkIfImage(data['content-type']);
+}
+
+bool checkIfImage(String param) {
+  if (param == 'image/jpeg' || param == 'image/png' || param == 'image/gif') {
+    return true;
+  }
+  return false;
 }
