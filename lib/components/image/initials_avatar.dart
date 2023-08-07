@@ -12,6 +12,7 @@ class UXInitialsAvatar extends StatelessWidget {
   final double size;
   final BoxFit fit;
   final BoxShape shape;
+  final bool? showShadow;
 
   const UXInitialsAvatar({
     super.key,
@@ -24,17 +25,24 @@ class UXInitialsAvatar extends StatelessWidget {
     this.size = 40,
     this.fit = BoxFit.contain,
     this.shape = BoxShape.rectangle,
+    this.showShadow = false,
   });
 
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+    const Widget loader = SizedBox(
+      width: 24,
+      height: 24,
+      child: CircularProgressIndicator(),
+    );
     final Widget container = Container(
       alignment: Alignment.center,
       width: size,
       height: size,
       clipBehavior: Clip.antiAlias,
-      decoration: _buildDecoration(true, colorScheme.secondaryContainer),
+      decoration:
+          _buildDecoration(showShadow ?? false, colorScheme.secondaryContainer),
       child: Text(
         getFirstTwoInitials(name),
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -52,13 +60,13 @@ class UXInitialsAvatar extends StatelessWidget {
           if (snapshot.hasData && snapshot.data == true) {
             return CachedNetworkImage(
               imageUrl: imageUrl!,
-              placeholder: (context, url) => const CircularProgressIndicator(),
+              placeholder: (context, url) => loader,
               imageBuilder: (context, imageProvider) => Container(
                 width: size,
                 height: size,
                 clipBehavior: Clip.antiAlias,
-                decoration: _buildDecoration(
-                    true, backgroundColor ?? colorScheme.primary),
+                decoration: _buildDecoration(showShadow ?? false,
+                    backgroundColor ?? colorScheme.primary),
                 child: Image(
                   image: imageProvider,
                   fit: fit,
@@ -84,16 +92,16 @@ class UXInitialsAvatar extends StatelessWidget {
           : null,
       color: backgroundColor,
       boxShadow: shadow
-          ? []
-          : [
+          ? [
               boxShadow ??
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withOpacity(0.5),
                     spreadRadius: 1,
-                    blurRadius: 2,
-                    offset: const Offset(0, 1),
-                  )
-            ],
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  ),
+            ]
+          : [],
     );
   }
 }
