@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class UXInitialsAvatar extends StatelessWidget {
   final String name;
@@ -31,10 +30,10 @@ class UXInitialsAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    const Widget loader = SizedBox(
-      width: 24,
-      height: 24,
-      child: CircularProgressIndicator(),
+    final Widget loader = SizedBox(
+      width: size,
+      height: size,
+      child: const CircularProgressIndicator(),
     );
     final Widget container = Container(
       alignment: Alignment.center,
@@ -54,31 +53,22 @@ class UXInitialsAvatar extends StatelessWidget {
     if (!isValidURL(imageUrl)) {
       return container;
     } else {
-      return FutureBuilder(
-        future: validateImage(imageUrl!),
-        builder: (context, snapshot) {
-          if (snapshot.hasData && snapshot.data == true) {
-            return CachedNetworkImage(
-              imageUrl: imageUrl!,
-              placeholder: (context, url) => loader,
-              imageBuilder: (context, imageProvider) => Container(
-                width: size,
-                height: size,
-                clipBehavior: Clip.antiAlias,
-                decoration: _buildDecoration(showShadow ?? false,
-                    backgroundColor ?? colorScheme.primary),
-                child: Image(
-                  image: imageProvider,
-                  fit: fit,
-                ),
-              ),
-              errorWidget: (context, url, error) {
-                return container;
-              },
-            );
-          } else {
-            return container;
-          }
+      return CachedNetworkImage(
+        imageUrl: imageUrl!,
+        placeholder: (context, url) => loader,
+        imageBuilder: (context, imageProvider) => Container(
+          width: size,
+          height: size,
+          clipBehavior: Clip.antiAlias,
+          decoration: _buildDecoration(
+              showShadow ?? false, backgroundColor ?? colorScheme.primary),
+          child: Image(
+            image: imageProvider,
+            fit: fit,
+          ),
+        ),
+        errorWidget: (context, url, error) {
+          return container;
         },
       );
     }
@@ -95,7 +85,7 @@ class UXInitialsAvatar extends StatelessWidget {
           ? [
               boxShadow ??
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withOpacity(0.3),
                     spreadRadius: 1,
                     blurRadius: 5,
                     offset: const Offset(0, 2),
@@ -122,24 +112,4 @@ bool isValidURL(String? url) {
   Uri? uri = Uri.tryParse(url);
   if (uri == null || !uri.hasAbsolutePath || uri.host.isEmpty) return false;
   return true;
-}
-
-Future<bool> validateImage(String imageUrl) async {
-  http.Response res;
-  try {
-    res = await http.get(Uri.parse(imageUrl));
-  } catch (e) {
-    return false;
-  }
-
-  if (res.statusCode != 200) return false;
-  Map<String, dynamic> data = res.headers;
-  return checkIfImage(data['content-type']);
-}
-
-bool checkIfImage(String param) {
-  if (param == 'image/jpeg' || param == 'image/png' || param == 'image/gif') {
-    return true;
-  }
-  return false;
 }

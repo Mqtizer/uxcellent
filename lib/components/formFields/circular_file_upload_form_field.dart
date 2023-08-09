@@ -12,6 +12,7 @@ class UXCircularFileUploadFormField extends StatelessWidget {
   final Color? backgroundColor;
   final Color? iconColor;
   final IconData? icon;
+  final double? size;
 
   const UXCircularFileUploadFormField({
     super.key,
@@ -21,6 +22,7 @@ class UXCircularFileUploadFormField extends StatelessWidget {
     this.backgroundColor,
     this.iconColor,
     this.icon,
+    this.size,
   });
 
   @override
@@ -31,14 +33,14 @@ class UXCircularFileUploadFormField extends StatelessWidget {
         backgroundColor: MaterialStateProperty.all(
           backgroundColor ?? colorScheme.primaryContainer,
         ),
-        padding: MaterialStateProperty.all(paddingStandard),
+        padding: MaterialStateProperty.all(paddingEqualMedium),
         shape: MaterialStateProperty.all(
           const CircleBorder(),
         ),
       ),
       icon: Icon(
         icon ?? Icons.camera_alt_outlined,
-        size: 32,
+        size: size ?? 32,
         color: iconColor ?? colorScheme.onPrimaryContainer,
       ),
       onPressed: () async {
