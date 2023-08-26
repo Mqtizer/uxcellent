@@ -127,8 +127,8 @@ class UXTheme extends StatelessWidget {
 }
 
 const bottomAppBarTheme = BottomAppBarTheme(
-  // elevation: 0.0,
-  shape: CircularNotchedRectangle(),
-  // padding: EdgeInsets.all(0.0),
-  // height: 80.0,
-);
+    // elevation: 8.0,
+    // shape: CircularNotchedRectangle(),
+    // padding: EdgeInsets.all(0.0),
+    // height: 80.0,
+    );
