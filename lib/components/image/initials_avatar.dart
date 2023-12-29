@@ -30,11 +30,6 @@ class UXInitialsAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Widget loader = SizedBox(
-      width: size,
-      height: size,
-      child: const CircularProgressIndicator(),
-    );
     final Widget container = Container(
       alignment: Alignment.center,
       width: size,
@@ -55,7 +50,7 @@ class UXInitialsAvatar extends StatelessWidget {
     } else {
       return CachedNetworkImage(
         imageUrl: imageUrl!,
-        placeholder: (context, url) => loader,
+        placeholder: (context, url) => const CircularProgressIndicator(),
         imageBuilder: (context, imageProvider) => Container(
           width: size,
           height: size,
