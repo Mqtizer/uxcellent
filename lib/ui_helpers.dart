@@ -100,6 +100,10 @@ const EdgeInsets paddingVerticalLarge = EdgeInsets.symmetric(
   vertical: 16.0,
 );
 
+const EdgeInsets paddingVerticalMassive = EdgeInsets.symmetric(
+  vertical: 32.0,
+);
+
 const RoundedRectangleBorder roundShapeStandard = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(8.0)),
 );
